@@ -8,12 +8,31 @@ package veterinariagrupo1;
  *
  * @author USER
  */
-public class Servicio {
+public class ServicioVeterinario {
     private String nombre;
     private double costo;
     
-    public Servicio(String nombre, double costo) {
+    public ServicioVeterinario(String nombre, double costo) {
         this.nombre = nombre;
         this.costo = costo;
     }
+    
+    public String getNombre()
+    {
+    return this.nombre;
+    }
+    
+   public double getCosto()
+   {
+       return this.costo;
+   }
+   
+    @Override
+   public String toString()
+   {
+       return this.nombre + " - S/.  " + this.costo;
+   }
 }
+
+
+        

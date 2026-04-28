@@ -5,24 +5,27 @@
 package veterinariagrupo1;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
- * @author USER
+ * @author valer
  */
 public class Atencion {
-    private String fecha;
-    private Mascota mascota;
-    private ArrayList<Servicio> listaServicios;
+    private int codigo;
+    private ArrayList<DetalleAtencion> detalles;
     
-    public Atencion(String fecha, Mascota mascota){    
-        this.fecha = fecha;
-        this.mascota = mascota;
-        this.listaServicios = new ArrayList<>();  
-    } 
+    public Atencion(int codigo)
+    {
+        this.codigo = codigo;
+        this.detalles = new ArrayList<>();
+    }
     
-   
-    
-    
+    public int getCodigo()
+    {
+        return this.codigo;
+    }
+    public ArrayList<DetalleAtencion> getDetalles()
+    {
+        return detalles;
+    }
 }
