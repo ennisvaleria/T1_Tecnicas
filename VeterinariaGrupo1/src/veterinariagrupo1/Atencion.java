@@ -28,4 +28,29 @@ public class Atencion {
     {
         return detalles;
     }
+    
+    public void agregarServicio(String nombreServicio, double costoServicio)
+    {
+        ServicioVeterinario servicio = new ServicioVeterinario(nombreServicio, costoServicio);
+        detalles.add(new DetalleAtencion(servicio));
+        System.out.println("Servicio agregado: " + nombreServicio);
+    }
+    
+    public double calcularTotal(){
+        double total = 0;
+        for(DetalleAtencion d: detalles)
+        {
+            total += d.calcularSubtotal();
+        }
+        return total;
+    }
+    public void mostrarAtencion()
+    {
+        System.out.println("---Atencion #" + codigo + "---");
+        for(DetalleAtencion d: detalles){
+            d.mostrarDetalle();
+        }
+        System.out.println(" Total: S/. " + calcularTotal());
+    }
+    
 }

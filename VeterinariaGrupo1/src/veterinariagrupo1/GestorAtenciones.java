@@ -18,4 +18,32 @@ public class GestorAtenciones {
         this.atenciones = new ArrayList<>();
     }
     
+    public void registrarAtencion(Atencion atencion)
+    {
+        atenciones.add(atencion);
+        System.out.println("Atención #" + atencion.getCodigo() + " registrada.");
+    }
+    
+    public void listarAtenciones() {
+        if(atenciones.isEmpty())
+        {
+            System.out.println("No hay atenciones registradas.");
+            return; 
+        }
+        System.out.println("\n---- Lista de Atenciones ----");
+        for (Atencion a: atenciones)
+        {
+            a.mostrarAtencion();
+        }
+    }
+    
+    public Atencion buscarAtencionInterna(int codigo) {
+    for (Atencion a : atenciones) {
+        if (a.getCodigo() == codigo) {
+            return a;
+        }
+    }
+    return null;
+}
+    
 }
