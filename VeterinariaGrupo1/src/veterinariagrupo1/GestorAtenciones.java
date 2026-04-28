@@ -45,5 +45,20 @@ public class GestorAtenciones {
     }
     return null;
 }
+    public Atencion obtenerMayorAtencion() {
+    if (atenciones.isEmpty()) {
+        return null;
+    }
+
+    Atencion mayor = atenciones.get(0);
+
+    for (Atencion a : atenciones) {
+        if (a.calcularTotal() > mayor.calcularTotal()) {
+            mayor = a;
+        }
+    }
+
+    return mayor;
+}
     
 }

@@ -23,12 +23,14 @@ public class VeterinariaGrupo1 {
 
         do {
             System.out.println("\n---- SISTEMA VETERINARIO ----");
-            System.out.println("1. Registrar nueva atención");
-            System.out.println("2. Agregar servicio a una atención");
-            System.out.println("3. Calcular total de una atención");
+            System.out.println("1. Registrar nueva atencion");
+            System.out.println("2. Agregar servicio a una atencion");
+            System.out.println("3. Calcular total de una atencion");
             System.out.println("4. Listar todas las atenciones");
+            System.out.println("5. Buscar atencion por codigo");
+            System.out.println("6. Mostrar atencion con mayor total");
             System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -49,9 +51,19 @@ public class VeterinariaGrupo1 {
                     if (atencion != null) {
                         System.out.print("Nombre del servicio: ");
                         String nombre = sc.nextLine();
+                        
+                        if (nombre.trim().isEmpty()) {
+                            System.err.println("Error: El nombre no puede estar vacío.");
+                            break;
+                        }
+                        
                         System.out.print("Costo del servicio: ");
                         double costo = sc.nextDouble();
                         sc.nextLine();
+                        if (costo <= 0) {
+                        System.err.println("Error: El costo debe ser mayor a 0.");
+                        break;
+                        }
                         atencion.agregarServicio(nombre, costo);
                     } else {
                         System.out.println("No se encontró la atención #" + codBuscar);
@@ -63,9 +75,16 @@ public class VeterinariaGrupo1 {
                     int codTotal = sc.nextInt();
                     sc.nextLine();
                     Atencion atencionTotal = gestor.buscarAtencionInterna(codTotal);
+                    
                     if (atencionTotal != null) {
-                        System.out.println("Total de la atención #" + codTotal +
-                                           ": S/. " + atencionTotal.calcularTotal());
+                        
+                       if (atencionTotal.getDetalles().isEmpty()) {
+                           System.out.println("La atención no tiene servicios.");
+                        } else {
+                           System.out.println("Total de la atención #" + codTotal +
+                            ": S/. " + atencionTotal.calcularTotal());
+                        }
+                        
                     } else {
                         System.out.println("No se encontró la atención #" + codTotal);
                     }
@@ -74,7 +93,30 @@ public class VeterinariaGrupo1 {
                 case 4:
                     gestor.listarAtenciones();
                     break;
+                    
+                case 5:
+                    System.out.print("Ingrese el código: ");
+                    int codBuscar2 = sc.nextInt();
+                    sc.nextLine();
 
+                    Atencion encontrada = gestor.buscarAtencionInterna(codBuscar2);
+
+                    if (encontrada != null) {
+                        encontrada.mostrarAtencion();
+                    } else {
+                     System.out.println("No se encontró la atención.");
+                    } 
+                    break;
+                case 6:
+                    Atencion mayor = gestor.obtenerMayorAtencion();
+
+                    if (mayor != null) {
+                        System.out.println("Atención con mayor total:");
+                        mayor.mostrarAtencion();
+                    } else {
+                    System.out.println("No hay atenciones registradas.");
+                    }
+                    break;
                 case 0:
                     System.out.println("Saliendo del sistema...");
                     break;
