@@ -15,4 +15,14 @@ public class Cliente {
     private String telefono;
     private ArrayList<Mascota> listaMascotas;
     
+    public Cliente(String nombre,String telefono){
+        this.nombre= nombre;
+        this.telefono=telefono;
+        listaMascotas=new ArrayList<>();  
+    } 
+    
+   
+    
+  
+    
 }

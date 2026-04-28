@@ -14,4 +14,13 @@ public class Mascota {
     private int edad;
     private Cliente dueño; 
     
+    public Mascota(String nombre, String especie, int edad, Cliente dueño) {
+        this.nombre = nombre;
+        this.especie = especie;
+        this.edad = edad;
+        this.dueño = dueño;
+    }
+    
+    
+    
 }

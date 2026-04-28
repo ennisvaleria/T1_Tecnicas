@@ -4,6 +4,7 @@
  */
 package veterinariagrupo1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,15 @@ import java.util.List;
 public class Atencion {
     private String fecha;
     private Mascota mascota;
-    private List<Servicio> listaServicios;  
+    private ArrayList<Servicio> listaServicios;
+    
+    public Atencion(String fecha, Mascota mascota){    
+        this.fecha = fecha;
+        this.mascota = mascota;
+        this.listaServicios = new ArrayList<>();  
+    } 
+    
+   
+    
     
 }
