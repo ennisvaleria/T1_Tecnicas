@@ -36,7 +36,7 @@ public class VeterinariaGrupo1 {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el código de la atención: ");
+                    System.out.print("Ingrese el codigo de la atencion: ");
                     int codigo = sc.nextInt();
                     sc.nextLine();
                     Atencion nuevaAtencion = new Atencion(codigo);
@@ -44,7 +44,7 @@ public class VeterinariaGrupo1 {
                     break;
 
                 case 2:
-                    System.out.print("Ingrese el código de la atención: ");
+                    System.out.print("Ingrese el codigo de la atención: ");
                     int codBuscar = sc.nextInt();
                     sc.nextLine();
                     Atencion atencion = gestor.buscarAtencionInterna(codBuscar);
@@ -53,7 +53,7 @@ public class VeterinariaGrupo1 {
                         String nombre = sc.nextLine();
                         
                         if (nombre.trim().isEmpty()) {
-                            System.err.println("Error: El nombre no puede estar vacío.");
+                            System.err.println("El nombre no puede estar vacio.");
                             break;
                         }
                         
@@ -61,17 +61,17 @@ public class VeterinariaGrupo1 {
                         double costo = sc.nextDouble();
                         sc.nextLine();
                         if (costo <= 0) {
-                        System.err.println("Error: El costo debe ser mayor a 0.");
+                        System.err.println("El costo debe ser mayor a 0.");
                         break;
                         }
                         atencion.agregarServicio(nombre, costo);
                     } else {
-                        System.out.println("No se encontró la atención #" + codBuscar);
+                        System.out.println("No se encontró la atencion #" + codBuscar);
                     }
                     break;
 
                 case 3:
-                    System.out.print("Ingrese el código de la atención: ");
+                    System.out.print("Ingrese el codigo de la atencion: ");
                     int codTotal = sc.nextInt();
                     sc.nextLine();
                     Atencion atencionTotal = gestor.buscarAtencionInterna(codTotal);
@@ -79,14 +79,14 @@ public class VeterinariaGrupo1 {
                     if (atencionTotal != null) {
                         
                        if (atencionTotal.getDetalles().isEmpty()) {
-                           System.out.println("La atención no tiene servicios.");
+                           System.out.println("La atencion no tiene servicios.");
                         } else {
-                           System.out.println("Total de la atención #" + codTotal +
+                           System.out.println("Total de la atencion #" + codTotal +
                             ": S/. " + atencionTotal.calcularTotal());
                         }
                         
                     } else {
-                        System.out.println("No se encontró la atención #" + codTotal);
+                        System.out.println("No se encontro la atencion #" + codTotal);
                     }
                     break;
 
@@ -95,7 +95,7 @@ public class VeterinariaGrupo1 {
                     break;
                     
                 case 5:
-                    System.out.print("Ingrese el código: ");
+                    System.out.print("Ingrese el codigo: ");
                     int codBuscar2 = sc.nextInt();
                     sc.nextLine();
 
@@ -104,14 +104,14 @@ public class VeterinariaGrupo1 {
                     if (encontrada != null) {
                         encontrada.mostrarAtencion();
                     } else {
-                     System.out.println("No se encontró la atención.");
+                     System.out.println("No se encontro la atencion.");
                     } 
                     break;
                 case 6:
                     Atencion mayor = gestor.obtenerMayorAtencion();
 
                     if (mayor != null) {
-                        System.out.println("Atención con mayor total:");
+                        System.out.println("Atencion con mayor total:");
                         mayor.mostrarAtencion();
                     } else {
                     System.out.println("No hay atenciones registradas.");
@@ -122,7 +122,7 @@ public class VeterinariaGrupo1 {
                     break;
 
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opcion no valida.");
             }
 
         } while (opcion != 0);
